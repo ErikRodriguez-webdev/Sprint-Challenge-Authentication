@@ -11,7 +11,7 @@ router.post("/register", (req, res) => {
 
   Users.add(req.body)
     .then((response) => {
-      res.status(201).json(response);
+      res.status(201).json({ ...response, password: "PRIVATE-INFORMATION" });
     })
     .catch(() => {
       res.status(500).json({ message: "Error registering user." });
